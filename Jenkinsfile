@@ -43,7 +43,7 @@ node(dockerAgent) {
 			}
 			if(params.deployPro){
 				sh "sudo docker build -t ${projectNamePrometh} ."
-				sh "sudo docker run --network=host --restart=always --name=${projectNamePrometh} --config.file=/etc/prometheus/prometheus.yml -td prom/prometheus"
+				sh "sudo docker run --network=host --restart=always --name=${projectNamePrometh} --config=/etc/prometheus/prometheus.yml -td prom/prometheus"
 			}
 			if(params.deployGraf){
 				sh "sudo docker run --network=host --name=${projectNameGrafana} -td grafana/grafana"
